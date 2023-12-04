@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import { db } from './firebaseConfig';// Import Firestore instance
-import { collection, addDoc } from "firebase/firestore"; 
+import { collection, addDoc } from "firebase/firestore";
+import { useNavigate } from 'react-router-dom';
 
 const AddContact = () => {
+  const navigate=useNavigate
   const [name, setName] = useState('');
   const [number, setNumber ] = useState('');
     
@@ -17,6 +19,7 @@ const AddContact = () => {
         // contact added successfully
         console.log('Contact added ');
 
+        navigate("/ContactList")
         // Optionally, reset form fields
         setName('');
         setNumber('');
